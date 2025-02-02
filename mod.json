@@ -1,0 +1,79 @@
+{
+	"geode": "4.2.0",
+	"gd": {
+		"win": "2.2074"
+	},
+	"id": "chumiiu.geometry_dash_time_reborn",
+	"name": "Geometry Dash: Time Reborn",
+	"version": "v1.0.0",
+	"developers": [
+		"GenaMorphosis",
+		"Chumiiu"
+	],
+	"description": "",
+	"early-load": true,
+	"incompatibilities":[
+		{
+			"id": "geode.custom-keybinds",
+			"importance": "breaking",
+			"version": "*"
+		},
+		{
+			"id": "gdutilsdevs.gdutils",
+			"importance": "breaking",
+			"version": "*"
+		},
+		{
+			"id": "capeling.geometry-dash-lunar",
+			"importance": "breaking",
+			"version": "*"
+		},
+		{
+			"id": "teamtcm.geometry-dash-odyssey",
+			"importance": "breaking",
+			"version": "*"
+		},
+		{
+			"id": "dankmeme.globed2",
+			"importance": "breaking",
+			"version": "*"
+		},
+		{
+			"id": "mishpro.comments_in_pause_menu",
+			"importance": "breaking",
+			"version": "*"
+		}
+		
+	],
+	"dependencies": [
+		{
+			"id": "geode.node-ids",
+			"version": ">=1.18.0",
+			"importance": "required"
+		}
+	],
+	"resources": {
+		"spritesheets": {
+			"GD_timeRebornSheet": [
+				"resources/GD_timeRebornSheet/*.png"
+			],
+			"GD_defaultIconSheet": [
+				"resources/defaultIcons/*.png"
+			]
+		},
+		"sprites": [
+			"resources/GJ_popupOD.png"
+		],
+		"files": [
+			"resources/songs/*.mp3",
+			"resources/platformer songs/*.ogg",
+			"resources/platformer songs/*.mp3",
+			"resources/levels/*.txt",
+			"resources/sfx/*.ogg",
+			"resources/iconSheet/*.png",
+			"resources/iconSheet/*.plist"
+			
+		]
+	}
+
+}
