@@ -18,6 +18,19 @@ This mod uses its own save file so your save data will not be modified. Your act
 There is also an android version of this fan-game as a separate app (APK) instead of android geode support, you can download it on [Gamejolt](https://gamejolt.com/games/timereborn/908956)!
 
 ---
+### **<cr>WARNING:</c>**
+
+This mod will break with the enabled mods:
+
+- **Geometry Dash Lunar**
+- **Geometry Dash Odyssey**
+- **GDUtils**
+- **Globed**
+- **Custom Keybinds**
+- **Comments in Pause menu**
+
+- **Any other mod that is a fan-game, or a cosmetic mod that changes the appearance of game menus**
+---
 ## **Credits**:
 
 
@@ -39,3 +52,12 @@ There is also an android version of this fan-game as a separate app (APK) instea
 - JustADudeJX3
 
 ### <cj>Artists</c>:
+
+- Danky88
+- PotatoTatoe
+- cyanflower
+
+---
+
+##### <cb>Don't expect high quality levels in there, all we wanted is just make a fun fangame which simulates robtops gd spin-off's, have fun! :)</c>
+##### <cj>Online Level List ID: 601617</c>
