@@ -5,7 +5,11 @@
 	},
 	"id": "chumiiu.geometry_dash_time_reborn",
 	"name": "Geometry Dash: Time Reborn",
+<<<<<<< HEAD
 	"version": "v1.0.2",
+=======
+	"version": "v1.0.1",
+>>>>>>> 5f133fff4adbc6900b3e1ee5bf8ad308113e5dcd
 	"developers": [
 		"Chumiiu",
 		"GenaMorphosis"
