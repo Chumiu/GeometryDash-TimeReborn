@@ -5,7 +5,6 @@
 bool LevelPopup::setup(std::string const &title)
 {
     m_level = GameLevelManager::get()->getMainLevel(m_levelID, true);
-    m_level->m_levelString = LocalLevelManager::get()->getMainLevelString(m_levelID);
 
     auto contentSize = m_mainLayer->getContentSize();
 
@@ -90,16 +89,34 @@ void LevelPopup::onPlay(CCObject* sender)
     FMODAudioEngine::sharedEngine()->playEffect("playSound_01.ogg");
     m_buttonsMenu->setEnabled(false);
 
-    setKeyboardEnabled(false);
+    m_playButtonPressed = true;
+    //setKeyboardEnabled(false);
 
-     auto GLM = GameLevelManager::sharedState();
-    auto playLayer = PlayLayer::scene(m_level, false, false);
+    runAction(
+        CCSequence::createWithTwoActions(
+            CCDelayTime::create(FMODAudioEngine::sharedEngine()->fadeOutMusic(0.5f, 0)),
+            CCCallFunc::create(this, callfunc_selector(LevelPopup::onloadLevel))
+        )
+    );
+}
 
-    CCScene *scene = CCScene::create();
-    scene->addChild(playLayer);
 
-    CCTransitionFade *fade = CCTransitionFade::create(0.5f, scene);
-    CCDirector::sharedDirector()->pushScene(fade);
+void LevelPopup::keyDown(cocos2d::enumKeyCodes key)
+{
+    if (!m_playButtonPressed)
+    {
+        if (key == cocos2d::enumKeyCodes::KEY_Escape) return this->onClose(nullptr);
+        if (key == cocos2d::enumKeyCodes::KEY_Space) return this->onPlay(nullptr);
+        return FLAlertLayer::keyDown(key);
+    }
+    
+}
+
+void LevelPopup::onloadLevel()
+{
+    m_level->m_levelString = LocalLevelManager::get()->getMainLevelString(m_levelID);
+
+    CCDirector::get()->replaceScene(CCTransitionFade::create(0.5f, PlayLayer::scene(m_level, false, false)));
 }
 
 LevelPopup *LevelPopup::create(int levelID)

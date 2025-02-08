@@ -5,19 +5,15 @@
 	},
 	"id": "chumiiu.geometry_dash_time_reborn",
 	"name": "Geometry Dash: Time Reborn",
-	"version": "v1.0.0",
+	"version": "v1.0.2",
 	"developers": [
-		"GenaMorphosis",
-		"Chumiiu"
+		"Chumiiu",
+		"GenaMorphosis"
+		
 	],
 	"description": "",
 	"early-load": true,
 	"incompatibilities":[
-		{
-			"id": "geode.custom-keybinds",
-			"importance": "breaking",
-			"version": "*"
-		},
 		{
 			"id": "gdutilsdevs.gdutils",
 			"importance": "breaking",
@@ -34,16 +30,10 @@
 			"version": "*"
 		},
 		{
-			"id": "dankmeme.globed2",
-			"importance": "breaking",
-			"version": "*"
-		},
-		{
-			"id": "mishpro.comments_in_pause_menu",
+			"id": "ninxout.redash",
 			"importance": "breaking",
 			"version": "*"
 		}
-		
 	],
 	"dependencies": [
 		{

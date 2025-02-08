@@ -39,7 +39,7 @@ bool TimeRebornActLayer::init(int currentAct)
     menu->addChild(m_islandButton);
 
 
-     auto navSprite = CCSprite::createWithSpriteFrameName("navArrowBtn_001.png");
+    auto navSprite = CCSprite::createWithSpriteFrameName("navArrowBtn_001.png");
     navSprite->setFlipX(true);
 
     auto navSprite2 = CCSprite::createWithSpriteFrameName("navArrowBtn_001.png");
@@ -63,6 +63,12 @@ bool TimeRebornActLayer::init(int currentAct)
 
 
     updatePage(m_currentPage);
+
+    auto pos = m_islandSprite->getPosition();
+
+    auto moveUp = CCEaseInOut::create(CCMoveTo::create(2.0f, pos + ccp(0, 5)), 1.8f);
+    auto moveDown = CCEaseInOut::create(CCMoveTo::create(2.0f, pos), 1.8f);
+    m_islandSprite->runAction(CCRepeatForever::create(CCSequence::createWithTwoActions(moveUp, moveDown)));
 
     setKeypadEnabled(true);
     setTouchEnabled(true);

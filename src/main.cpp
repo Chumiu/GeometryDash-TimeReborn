@@ -116,6 +116,14 @@ class $modify(OptionsLayer)
 		
 		FLAlertLayer::create("Disabled :(", "This button is disabled on this fangame", "OK")->show();
 	}
+
+	void customSetup()
+	{
+		OptionsLayer::customSetup();
+
+		if (auto button = this->getChildByIDRecursive("vault-button"))
+			button->setVisible(false);
+	}
 };
 
 class $modify(LocalLevelManager)

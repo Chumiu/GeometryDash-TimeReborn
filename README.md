@@ -20,16 +20,13 @@ There is also an android version of this fan-game as a separate app (APK) instea
 ---
 ### **<cr>WARNING:</c>**
 
-This mod will break with the enabled mods:
+This mod will break with these enabled mods:
 
 - **Geometry Dash Lunar**
 - **Geometry Dash Odyssey**
 - **GDUtils**
-- **Globed**
-- **Custom Keybinds**
-- **Comments in Pause menu**
-
-- **Any other mod that is a fan-game, or a cosmetic mod that changes the appearance of game menus**
+- **Overcharged Main Menu**
+- **Any other mod that is a fan-game**
 ---
 ## **Credits**:
 
@@ -54,8 +51,10 @@ This mod will break with the enabled mods:
 ### <cj>Artists</c>:
 
 - Danky88
+- DumOgus
 - PotatoTatoe
 - cyanflower
+- GenaMorphosis
 
 ---
 
