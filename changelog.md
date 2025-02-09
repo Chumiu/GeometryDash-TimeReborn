@@ -1,3 +1,7 @@
+# v1.0.2
+
+* Fixed some mod incompatibilities
+
 # v1.0.1
 
 * Added some mod incompatibilities
