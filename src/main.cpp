@@ -38,8 +38,9 @@ class $modify(MenuLayerExt, MenuLayer) {
 		auto mainTitle = getChildByID("main-title");
 
 		//add the 'Time Reborn' title
-		if (mainTitle)
+		if (mainTitle && !Loader::get()->isModLoaded("ninxout.redash"))
 		{
+			
 			auto smallTitle = CCSprite::createWithSpriteFrameName("GJ_tr_001.png"_spr);
 			smallTitle->setScale(.8f);
 			smallTitle->setPosition({ mainTitle->getPositionX() + 125, mainTitle->getPositionY() - 40 });
@@ -76,6 +77,27 @@ class $modify(MenuLayerExt, MenuLayer) {
 			runAction(CCCallFunc::create(this, callfunc_selector(MenuLayerExt::showSaveAlert)));
 			Mod::get()->setSavedValue<bool>("saveAlertClicked", true);
 		}
+
+		// Redash fixes
+
+		if (Loader::get()->isModLoaded("ninxout.redash"))
+		{
+			std::string redashId = "ninxout.redash/";
+
+			if (auto remenu = getChildByID("ninxout.redash/redash-menu"))
+			{
+				if (auto dailiesMenu = remenu->getChildByID("ninxout.redash/dailies-menu"))
+				{
+					auto mainLevelBtn = static_cast<CCMenuItemSpriteExtra*>(dailiesMenu->getChildByID("main-levels-button"));
+
+					mainLevelBtn->m_pfnSelector = menu_selector(MenuLayer::onPlay);
+
+					//auto buttonNode = static_cast<CCNode*>(getChildren()->objectAtIndex(1));
+
+					//auto 
+				}
+			}
+		}
 			
 
 		return true;
@@ -98,7 +120,6 @@ class $modify(MenuLayerExt, MenuLayer) {
 
 	void onPlay(CCObject* sender) 
 	{
-		
 		SelectActPopup::create()->show();
 	}
 

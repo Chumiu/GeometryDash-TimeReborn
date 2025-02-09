@@ -5,7 +5,7 @@
 	},
 	"id": "chumiiu.geometry_dash_time_reborn",
 	"name": "Geometry Dash: Time Reborn",
-	"version": "v1.0.2",
+	"version": "v1.0.3",
 	"developers": [
 		"GenaMorphosis",
 		"Chumiiu"		
@@ -14,22 +14,12 @@
 	"early-load": true,
 	"incompatibilities":[
 		{
-			"id": "gdutilsdevs.gdutils",
-			"importance": "breaking",
-			"version": "*"
-		},
-		{
 			"id": "capeling.geometry-dash-lunar",
 			"importance": "breaking",
 			"version": "*"
 		},
 		{
 			"id": "teamtcm.geometry-dash-odyssey",
-			"importance": "breaking",
-			"version": "*"
-		},
-		{
-			"id": "ninxout.redash",
 			"importance": "breaking",
 			"version": "*"
 		}
