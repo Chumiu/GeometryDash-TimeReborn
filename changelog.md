@@ -1,6 +1,8 @@
 # v1.0.2
 
 * Fixed some mod incompatibilities
+* Added events on the level popup by pressing some keys
+* Added animation for the islands
 
 # v1.0.1
 
