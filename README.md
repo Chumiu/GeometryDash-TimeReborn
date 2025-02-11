@@ -24,8 +24,6 @@ This mod will break with these enabled mods:
 
 - **Geometry Dash Lunar**
 - **Geometry Dash Odyssey**
-- **GDUtils**
-- **Overcharged Main Menu**
 - **Any other mod that is a fan-game**
 ---
 ## **Credits**:

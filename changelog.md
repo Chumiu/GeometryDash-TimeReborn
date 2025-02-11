@@ -1,3 +1,7 @@
+# v1.0.4
+
+* Updated Description
+
 # v1.0.3
 
 * Removed and fixed Overcharged main menu & GD Utils incompatibilities
