@@ -1,14 +1,15 @@
 {
-	"geode": "4.2.0",
+	"geode": "5.0.1",
 	"gd": {
-		"win": "2.2074"
+		"win": "2.2081"
 	},
 	"id": "chumiiu.geometry_dash_time_reborn",
 	"name": "Geometry Dash: Time Reborn",
 	"version": "v1.0.4",
 	"developers": [
 		"GenaMorphosis",
-		"Chumiiu"		
+		"Chumiiu",
+		"ItzZyann"	
 	],
 	"description": "",
 	"early-load": true,
@@ -27,7 +28,7 @@
 	"dependencies": [
 		{
 			"id": "geode.node-ids",
-			"version": ">=1.18.0",
+			"version": ">=1.20.0",
 			"importance": "required"
 		}
 	],
