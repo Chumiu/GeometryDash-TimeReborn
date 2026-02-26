@@ -31,14 +31,24 @@ class $modify(GameManager)
     void returnToLastScene(GJGameLevel* p0)
      {
 
-        if (p0->m_levelType == GJLevelType::Main)
-        {
-            //log::info("{}", p0->m_levelID.value());
-            auto actScene = TimeRebornActLayer::scene(TimeReborn::actForLevel(p0->m_levelID.value()), p0->m_levelID.value());
+        if (p0->m_levelType == GJLevelType::Main) {
+            if (p0->m_levelID == 10) {
+                CCDirector::sharedDirector()
+                    ->replaceScene(
+                        CCTransitionFade::create(0.5f, MenuLayer::scene(false))
+                    );
 
-            CCDirector::sharedDirector()->replaceScene(CCTransitionFade::create(0.5f, actScene));
-            return;
+                return;
+            } else {
+                auto actScene = TimeRebornActLayer::scene(TimeReborn::actForLevel(p0->m_levelID.value()), p0->m_levelID.value());
+
+                CCDirector::sharedDirector()
+                    ->replaceScene(CCTransitionFade::create(0.5f, actScene));
+            
+                return;
+            }
         }
+
         GameManager::returnToLastScene(p0);
     }
 

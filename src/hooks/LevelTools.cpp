@@ -32,6 +32,8 @@ class $modify(LevelTools)
 			return "Skystrike";
 		case 9:
 			return "The Star Realm";
+		case 10:
+			return "Time Leaper";
 		default:
 			return LevelTools::getAudioTitle(levelID);
 		}
@@ -55,6 +57,8 @@ class $modify(LevelTools)
 			return "Daydreamer.mp3"_spr;
 		case 108:
 			return "Skystrike.mp3"_spr;
+		case 109:
+			return "683969.mp3"_spr;
 		default:
 			return "-";
 		}
@@ -82,7 +86,8 @@ class $modify(LevelTools)
 			return 11;
 		case 9:
 			return 18;
-
+		case 10:
+			return 11;
 		default:
 			return LevelTools::artistForAudio(p0);
 		}
@@ -133,6 +138,8 @@ class $modify(LevelTools)
 			return "https://www.newgrounds.com/audio/listen/700355";
 		case 9:
 			return "https://www.youtube.com/channel/UCc9RWpppO7qR_cG5Ssij-lw";
+		case 10:
+			return "https://www.youtube.com/watch?v=nMbx8EurE0g";
 		default:
 			return  LevelTools::urlForAudio(p0);
 		}
@@ -149,7 +156,7 @@ class $modify(LevelTools)
 			level->m_stars = 1;
 			level->m_difficulty = GJDifficulty::Easy;
 			level->m_requiredCoins = 0;
-			level->m_timestamp = 0;
+			level->m_timestamp = 28650;
 			level->m_coins = 3;
 			level->m_levelLength = 5;
 			break;
@@ -160,7 +167,7 @@ class $modify(LevelTools)
 			level->m_stars = 2;
 			level->m_difficulty = GJDifficulty::Normal;
 			level->m_requiredCoins = 0;
-			level->m_timestamp = 0;
+			level->m_timestamp = 38085;
 			level->m_coins = 3;
 			level->m_levelLength = 5;
 			break;
@@ -171,7 +178,7 @@ class $modify(LevelTools)
 			level->m_stars = 3;
 			level->m_difficulty = GJDifficulty::Normal;
 			level->m_requiredCoins = 0;
-			level->m_timestamp = 0;
+			level->m_timestamp = 18156;
 			level->m_coins = 3;
 			break;
 
@@ -181,7 +188,7 @@ class $modify(LevelTools)
 			level->m_stars = 4;
 			level->m_difficulty = GJDifficulty::Hard;
 			level->m_requiredCoins = 0;
-			level->m_timestamp = 0;
+			level->m_timestamp = 17074;
 			level->m_coins = 3;
 			break;
 
@@ -191,7 +198,7 @@ class $modify(LevelTools)
 			level->m_stars = 2;
 			level->m_difficulty = GJDifficulty::Normal;
 			level->m_requiredCoins = 0;
-			level->m_timestamp = 0;
+			level->m_timestamp = 27667;
 			level->m_coins = 3;
 			level->m_levelLength = 5;
 			break;
@@ -202,7 +209,7 @@ class $modify(LevelTools)
 			level->m_stars = 5;
 			level->m_difficulty = GJDifficulty::Harder;
 			level->m_requiredCoins = 0;
-			level->m_timestamp = 0;
+			level->m_timestamp = 15399;
 			level->m_coins = 3;
 
 			break;
@@ -213,7 +220,7 @@ class $modify(LevelTools)
 			level->m_stars = 6;
 			level->m_difficulty = GJDifficulty::Harder;
 			level->m_requiredCoins = 0;
-			level->m_timestamp = 0;
+			level->m_timestamp = 20980;
 			level->m_coins = 3;
 			break;
 
@@ -223,7 +230,7 @@ class $modify(LevelTools)
 			level->m_stars = 8;
 			level->m_difficulty = GJDifficulty::Insane;
 			level->m_requiredCoins = 0;
-			level->m_timestamp = 0;
+			level->m_timestamp = 21645;
 			level->m_coins = 3;
 			break;
 
@@ -233,9 +240,20 @@ class $modify(LevelTools)
 			level->m_stars = 7;
 			level->m_difficulty = GJDifficulty::Harder;
 			level->m_requiredCoins = 0;
-			level->m_timestamp = 0;
+			level->m_timestamp = 77086;
 			level->m_coins = 3;
 			level->m_levelLength = 5;
+			break;
+
+		case 10:
+			level->m_levelName = getAudioTitle(10);
+			level->m_audioTrack = 110;
+			level->m_stars = 10;
+			level->m_difficulty = GJDifficulty::Demon;
+			level->m_demon = 2;
+			level->m_requiredCoins = 0;
+			level->m_timestamp = 41239;
+			level->m_coins = 3;
 			break;
 		}
 

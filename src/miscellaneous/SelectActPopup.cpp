@@ -1,10 +1,11 @@
 #include "SelectActPopup.hpp"
 #include "../layers/TimeRebornActLayer.hpp"
 #include "Utils.hpp"
+#include "LevelPopup.hpp"
 
 bool SelectActPopup::init()
 {
-    if(!Popup::init(170, 160, "GJ_square01.png", {0, 0, 80, 80}))
+    if(!Popup::init(230, 160, "GJ_square01.png", {0, 0, 80, 80}))
         return false;
 
     setTitle("Select Act");
@@ -38,7 +39,31 @@ bool SelectActPopup::init()
     // AFTER FINISHING ALL ACTS
     // WERE THE PLAYER CAN PLAY "Time Leaper" LEVEL
     // BY GENA
+
+    // TIME LEAPER
+    auto winSize = CCDirector::sharedDirector()->getWinSize();
+    const char* doorState = isActCompleted(3)
+        ? "towerDoor_open_001.png"
+        : "towerDoor_locked_001.png";
+
+    auto secretSpr_selected = CCSprite::createWithSpriteFrameName(doorState);
+    secretSpr_selected->setColor({0xa6, 0xa6, 0xa6});
+
+    auto secretSpr_unselected = CCSprite::createWithSpriteFrameName(doorState);
+
+    secretSpr_selected->setScale(.7);   
+    secretSpr_unselected->setScale(.7);
+
+    auto secretBtn = CCMenuItemSprite::create(secretSpr_unselected, secretSpr_selected, this,
+        menu_selector(SelectActPopup::onPlaySecretLevel));
     
+    secretBtn->setPosition({
+        m_size.width - 18,
+        m_size.height / 2 - 49
+    });
+
+    m_buttonMenu->addChild(secretBtn);
+
     return true;
 };
 
@@ -68,6 +93,19 @@ bool SelectActPopup::isActCompleted(int act)
         return true;
         
     return false;
+}
+
+void SelectActPopup::onPlaySecretLevel(CCObject* pSender) {
+    if (!isActCompleted(3)) {
+        FLAlertLayer::create(
+            "Locked",
+            "Complete all <cg>ACT</c> to <cl>unlock</c> this <co>Secret Level</c>.",
+            "OK"
+        )->show();
+    } else {
+        LevelPopup::create(10)
+            ->show();
+    }
 }
 
 SelectActPopup *SelectActPopup::create()

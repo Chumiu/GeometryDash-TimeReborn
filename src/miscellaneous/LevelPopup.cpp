@@ -135,7 +135,7 @@ void LevelPopup::onSettings(CCObject *sender)
 void LevelPopup::onPlay(CCObject* sender)
 {
     FMODAudioEngine::sharedEngine()->playEffect("playSound_01.ogg");
-    FMODAudioEngine::sharedEngine()->fadeOutMusic(0.2f, 0);
+    FMODAudioEngine::sharedEngine()->stopAllMusic(true);
 
     m_buttonMenu->setEnabled(false);
     m_buttonsMenu->setEnabled(false);

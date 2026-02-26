@@ -11,7 +11,7 @@ bool CreditsPopup::init()
     setTitle("Credits", "bigFont.fnt");
 
     m_usersContainer = CCMenu::create();
-    m_usersContainer->setPosition(0, 0);
+    m_usersContainer->setPosition(0, 10);
     m_mainLayer->addChild(m_usersContainer);
 
     addUser("RobTop", "Geometry Dash\nDeveloper", 275, 6, 3, 1, 71);
