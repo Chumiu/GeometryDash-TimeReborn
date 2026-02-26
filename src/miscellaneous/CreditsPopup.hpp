@@ -3,7 +3,7 @@
 
 using namespace geode::prelude;
 
-class CreditsPopup : public geode::Popup<std::string const &>
+class CreditsPopup : public geode::Popup
 {
 protected:
     int m_currentPage = 0;
@@ -12,7 +12,7 @@ protected:
     CCMenu* m_usersContainer;
     CCLabelBMFont* m_pageLabel;
 
-    bool setup(std::string const &) override;
+    bool init();
     void updateLayer();
     void onUserProfile(CCObject*);
     void onNextPage(CCObject*);

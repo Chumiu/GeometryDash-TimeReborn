@@ -131,7 +131,7 @@ CCNode *TimeReborn::createProgressBar(int percentage, bool isPractice)
     std::string progressNumber = std::to_string(percentage);
     auto progressLabel = CCLabelBMFont::create(fmt::format("{}%", progressNumber).c_str(), "bigFont.fnt");
     progressLabel->setPositionY(0.5f);
-    progressLabel->setScale(0.325f);
+    progressLabel->setScale(0.4);
     progressLabel->setZOrder(3);
 
     node->addChild(progressLabel);

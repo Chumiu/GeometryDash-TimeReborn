@@ -32,6 +32,7 @@ This mod will break with these enabled mods:
 ### <cy>Mod Developer</c>: 
 
 - Chumiu
+- ItzZyann
 
 ### <cg>Level Creators</c>:
 

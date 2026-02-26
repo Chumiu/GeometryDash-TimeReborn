@@ -31,7 +31,7 @@ class $modify(GameManager)
     void returnToLastScene(GJGameLevel* p0)
      {
 
-        if (p0->m_levelType == GJLevelType::Local)
+        if (p0->m_levelType == GJLevelType::Main)
         {
             //log::info("{}", p0->m_levelID.value());
             auto actScene = TimeRebornActLayer::scene(TimeReborn::actForLevel(p0->m_levelID.value()), p0->m_levelID.value());

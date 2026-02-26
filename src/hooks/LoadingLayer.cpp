@@ -23,6 +23,8 @@ class $modify(LoadingLayerExt, LoadingLayer)
         LoadingLayerExt::loadAudioAssets();
 
         auto mainTitle = static_cast<CCSprite *>(this->getChildByID("gd-logo"));
+        mainTitle->setPositionY(mainTitle->getPositionY() + 13); // extend abit high
+
         if (mainTitle)
         {
           	auto smallTitle = CCSprite::createWithSpriteFrameName("GJ_tr_001.png"_spr);

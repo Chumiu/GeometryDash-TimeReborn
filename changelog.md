@@ -1,3 +1,9 @@
+# v1.0.5
+
+* UI Improvements
+* Best Time for Platformer Levels
+* New Level added "Time Leaper"
+
 # v1.0.4
 
 * Updated Description

@@ -2,8 +2,11 @@
 #include "../layers/TimeRebornActLayer.hpp"
 #include "Utils.hpp"
 
-bool SelectActPopup::setup(std::string const &title)
+bool SelectActPopup::init()
 {
+    if(!Popup::init(170, 160, "GJ_square01.png", {0, 0, 80, 80}))
+        return false;
+
     setTitle("Select Act");
 
     auto act1 = CCSprite::createWithSpriteFrameName("actBtn_01.png"_spr);
@@ -17,19 +20,24 @@ bool SelectActPopup::setup(std::string const &title)
 
     auto button1 = CCMenuItemSpriteExtra::create(act1, this, menu_selector(SelectActPopup::onSelectAct));
     button1->setTag(1);
-    button1->setPosition(m_size / 2 + CCPoint(0, 35));
+    button1->setPosition(m_size / 2 + CCPoint(0, 25));
     m_buttonMenu->addChild(button1);
 
  
     auto button2 = CCMenuItemSpriteExtra::create(act2, this, menu_selector(SelectActPopup::onSelectAct));
     button2->setTag(2);
-    button2->setPosition(m_size / 2);
+    button2->setPosition(m_size / 2 + CCPoint(0, -10));
     m_buttonMenu->addChild(button2);
 
     auto button3 = CCMenuItemSpriteExtra::create(act3, this, menu_selector(SelectActPopup::onSelectAct));
     button3->setTag(3);
-    button3->setPosition(m_size / 2 + CCPoint(0, -35));
+    button3->setPosition(m_size / 2 + CCPoint(0, -45));
     m_buttonMenu->addChild(button3);
+    
+    // TODO: ADD A SECRET BUTTON OR A BUTTON
+    // AFTER FINISHING ALL ACTS
+    // WERE THE PLAYER CAN PLAY "Time Leaper" LEVEL
+    // BY GENA
     
     return true;
 };
@@ -66,7 +74,7 @@ SelectActPopup *SelectActPopup::create()
 {
     auto ret = new SelectActPopup();
 
-    if (ret && ret->initAnchored(150.f, 180.f, ""))
+    if (ret && ret->init())
     {
         ret->autorelease();
         return ret;

@@ -1,19 +1,19 @@
 #pragma once
 using namespace geode::prelude;
 
-class LevelPopup : public geode::Popup<std::string const &>
+class LevelPopup : public geode::Popup
 {
     int m_levelID;
     GJGameLevel* m_level;
     CCMenu* m_buttonsMenu;
     bool m_playButtonPressed;
 private:
-    bool setup(std::string const &) override;
+    bool init();
     void onPlay(CCObject*);
     void onloadLevel();
     void onSettings(CCObject*);
     void onSong(CCObject*);
-    void keyDown(cocos2d::enumKeyCodes key) override;
+    void keyDown(cocos2d::enumKeyCodes key, double p1) override;
 public:
     static LevelPopup* create(int);
 

@@ -3,8 +3,11 @@
 #include "Utils.hpp"
 
 
-bool CreditsPopup::setup(std::string const &title)
+bool CreditsPopup::init()
 {
+    if(!Popup::init(300, 250, "GJ_square01.png", {0, 0, 80, 80}))
+        return false;
+    
     setTitle("Credits", "bigFont.fnt");
 
     m_usersContainer = CCMenu::create();
@@ -13,6 +16,7 @@ bool CreditsPopup::setup(std::string const &title)
 
     addUser("RobTop", "Geometry Dash\nDeveloper", 275, 6, 3, 1, 71);
     addUser("Chumiu", "Developer", 457, 94, 52, 12, 25521533);
+    addUser("ItzZyann", "Developer", 108, 94, 12, 12, 14292579);
     addUser("GenaMorphosis", "Level 1/4/5/6/8/9\nIsland Sprites\nLevel Layouts", 467, 6, 74, 72, 10026833);
     addUser("Dum0gus", "Island Sprites\nLevel 2/8", 107, 12, 12, 11, 24249778);
     addUser("Seannnn", "Level 3/8", 114, 77, 70, 8, 16494507);
@@ -160,7 +164,7 @@ CreditsPopup *CreditsPopup::create()
 {
     auto ret = new CreditsPopup();
 
-    if (ret && ret->initAnchored(300.f, 250.f, ""))
+    if (ret && ret->init())
     {
         ret->autorelease();
         return ret;

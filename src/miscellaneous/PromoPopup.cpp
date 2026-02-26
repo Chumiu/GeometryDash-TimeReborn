@@ -1,7 +1,10 @@
 #include "PromoPopup.hpp"
 
-bool PromoPopup::setup(std::string const &title)
+bool PromoPopup::init()
 {
+    if(!Popup::init(340, 280, "GJ_square01.png", {0, 0, 80, 80}))
+        return false;
+    
     setTitle(" ");
 
     m_bgSprite->removeFromParentAndCleanup(true);
@@ -27,7 +30,7 @@ PromoPopup *PromoPopup::create()
 {
     auto ret = new PromoPopup();
 
-    if (ret && ret->initAnchored(340.f, 280.f, ""))
+    if (ret && ret->init())
     {
         ret->autorelease();
         return ret;

@@ -1,11 +1,11 @@
 #pragma once
 using namespace geode::prelude;
 
-class SelectActPopup : public geode::Popup<std::string const &>
+class SelectActPopup : public geode::Popup
 {
     bool m_saveFileAlert;
 protected:
-    bool setup(std::string const &) override;
+    bool init();
     void onSelectAct(CCObject*);
     bool isActCompleted(int);
 public:

@@ -1,11 +1,11 @@
 #pragma once
 using namespace geode::prelude;
 
-class PromoPopup : public geode::Popup<std::string const &>
+class PromoPopup : public geode::Popup
 {
 protected:
     
-    bool setup(std::string const &) override;
+    bool init();
     void promoClicked(CCObject*);
     bool ccTouchBegan(cocos2d::CCTouch* p0, cocos2d::CCEvent* p1)
     {

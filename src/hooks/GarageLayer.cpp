@@ -11,20 +11,23 @@ class $modify(GJGarageLayer)
         if (!GJGarageLayer::init())
             return false;
 
-        auto menu = getChildByID("shards-menu");
+        // fixed because
+        // it crash and idk why
+        if (auto menu = getChildByID("shards-menu")) {
 
-        if (auto shards = menu->getChildByID("shards-button"))
-            shards->setVisible(false);
+            if (auto shards = menu->getChildByID("shards-button"))
+                shards->setVisible(false);
 
-        if (auto paint = menu->getChildByID("color-button"))
-            paint->setPositionY(paint->getPositionY() + 25);
+            if (auto paint = menu->getChildByID("color-button"))
+                paint->setPositionY(paint->getPositionY() + 25);
+        }
 
         if (auto userLabel = getChildByID("username-label"))
             userLabel->setVisible(false);
 
         if (auto userHint = getChildByID("username-hint"))
             userHint->setVisible(false);
-
+        
         return true;
     }
 

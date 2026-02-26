@@ -2,8 +2,11 @@
 #include "LevelPopup.hpp"
 #include "Utils.hpp"
 
-bool LevelPopup::setup(std::string const &title)
+bool LevelPopup::init()
 {
+    if(!Popup::init(340, 280, "GJ_square01.png", {0, 0, 80, 80}))
+        return false;
+
     m_level = GameLevelManager::get()->getMainLevel(m_levelID, true);
 
     auto contentSize = m_mainLayer->getContentSize();
@@ -22,13 +25,59 @@ bool LevelPopup::setup(std::string const &title)
     difficultyNode->setID("difficulty-node"_spr);
     m_mainLayer->addChild(difficultyNode);
 
-    auto normalProgress = TimeReborn::createProgressBar(m_level->m_normalPercent, false);
-    normalProgress->setPosition({contentSize.width / 2, contentSize.height / 2 - 45.0f});
-    m_mainLayer->addChild(normalProgress);
+    if (!m_level->isPlatformer()) {
+        auto normalProgress = TimeReborn::createProgressBar(m_level->m_normalPercent, false);
+        normalProgress->setPosition({contentSize.width / 2, contentSize.height / 2 - 45.0f});
+        m_mainLayer->addChild(normalProgress);
 
-    auto practiceProgress = TimeReborn::createProgressBar(m_level->m_practicePercent, true);
-    practiceProgress->setPosition({contentSize.width / 2, normalProgress->getPositionY() - 40.0f});
-    m_mainLayer->addChild(practiceProgress);
+        auto practiceProgress = TimeReborn::createProgressBar(m_level->m_practicePercent, true);
+        practiceProgress->setPosition({contentSize.width / 2, normalProgress->getPositionY() - 40.0f});
+        m_mainLayer->addChild(practiceProgress);
+    }
+
+    // timer for platformer mode
+    // instead of best time
+    if (m_level->isPlatformer()) {
+        std::string timeText;
+
+        if  (m_level->m_bestTime <= 0) {
+            timeText = "No Best Time";
+        } else {
+            int totalMs = m_level->m_bestTime;
+
+            int hours = totalMs / 3600000;
+            int minutes = (totalMs / 60000) % 60;
+            int seconds = (totalMs / 1000) % 60;
+            int milliseconds = totalMs % 1000;
+
+            if (hours > 0) {
+                timeText = CCString::createWithFormat(
+                    "Best Time: %02d:%02d:%02d.%03d",
+                    hours, minutes, seconds, milliseconds
+                )->getCString();
+            } else {
+                timeText = CCString::createWithFormat(
+                    "Best Time: %02d:%02d.%03d",
+                    minutes, seconds, milliseconds
+                )->getCString();
+            }
+        }
+
+        auto time = CCLabelBMFont::create(
+            timeText.c_str(),
+            "goldFont.fnt"
+        );
+
+        time->setScale(.7);
+        time->setPosition({
+            contentSize.width / 2,
+            contentSize.height / 2 - 60
+        });
+
+        m_mainLayer->addChild(time);
+    }
+
+
 
     m_buttonsMenu = CCMenu::create();
     m_buttonsMenu->setContentSize(m_mainLayer->getContentSize());
@@ -85,8 +134,10 @@ void LevelPopup::onSettings(CCObject *sender)
 
 void LevelPopup::onPlay(CCObject* sender)
 {
-    m_buttonMenu->setEnabled(false);
     FMODAudioEngine::sharedEngine()->playEffect("playSound_01.ogg");
+    FMODAudioEngine::sharedEngine()->fadeOutMusic(0.2f, 0);
+
+    m_buttonMenu->setEnabled(false);
     m_buttonsMenu->setEnabled(false);
 
     m_playButtonPressed = true;
@@ -94,20 +145,20 @@ void LevelPopup::onPlay(CCObject* sender)
 
     runAction(
         CCSequence::createWithTwoActions(
-            CCDelayTime::create(FMODAudioEngine::sharedEngine()->fadeOutMusic(0.5f, 0)),
+            CCDelayTime::create(5),
             CCCallFunc::create(this, callfunc_selector(LevelPopup::onloadLevel))
         )
     );
 }
 
 
-void LevelPopup::keyDown(cocos2d::enumKeyCodes key)
+void LevelPopup::keyDown(cocos2d::enumKeyCodes key, double p1)
 {
     if (!m_playButtonPressed)
     {
         if (key == cocos2d::enumKeyCodes::KEY_Escape) return this->onClose(nullptr);
         if (key == cocos2d::enumKeyCodes::KEY_Space) return this->onPlay(nullptr);
-        return FLAlertLayer::keyDown(key);
+        return FLAlertLayer::keyDown(key, p1);
     }
     
 }
@@ -124,7 +175,7 @@ LevelPopup *LevelPopup::create(int levelID)
     auto ret = new LevelPopup();
     ret->m_levelID = levelID;
 
-    if (ret && ret->initAnchored(340.f, 280.f, ""))
+    if (ret && ret->init())
     {
         ret->autorelease();
         return ret;
