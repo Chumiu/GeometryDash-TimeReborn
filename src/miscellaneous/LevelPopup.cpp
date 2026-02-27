@@ -1,5 +1,6 @@
 #pragma once
 #include "LevelPopup.hpp"
+#include "LevelLoading.hpp"
 #include "Utils.hpp"
 
 bool LevelPopup::init()
@@ -128,8 +129,20 @@ bool LevelPopup::init()
 
 void LevelPopup::onSettings(CCObject *sender)
 {
+    // sorry chumiu
+    // but I really need to do
+    // this :(
+    // - ItzZyann
+
     auto layer = GameLevelOptionsLayer::create(m_level);
-    layer->show();
+        
+    CCDirector::get()
+        ->getRunningScene()
+            ->addChild(layer, 9999);
+
+    // this fixes the bug
+    // when opening the options menu
+    // in secret level
 };
 
 void LevelPopup::onPlay(CCObject* sender)
@@ -141,7 +154,11 @@ void LevelPopup::onPlay(CCObject* sender)
     m_buttonsMenu->setEnabled(false);
 
     m_playButtonPressed = true;
-    //setKeyboardEnabled(false);
+    setKeypadEnabled(false);
+
+    // display this
+    LevelLoading::create()
+        ->show();
 
     runAction(
         CCSequence::createWithTwoActions(

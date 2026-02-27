@@ -18,7 +18,6 @@ class $modify(LoadingLayerExt, LoadingLayer)
         CCFileUtils::sharedFileUtils()->addSearchPath(searchPathRoot.string().c_str());
         SFC->addSpriteFramesWithFile("GD_timeRebornSheet.plist"_spr);
         SFC->addSpriteFramesWithFile("iconSheet.plist"_spr);
-        SFC->addSpriteFramesWithFile("TowerSheet.plist");
 
         LoadingLayerExt::loadAudioAssets();
 

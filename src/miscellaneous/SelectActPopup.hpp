@@ -5,7 +5,7 @@ class SelectActPopup : public geode::Popup
 {
     bool m_saveFileAlert;    
 protected:
-    bool init();
+    bool init();    
     void onSelectAct(CCObject*);
     bool isActCompleted(int);
     void onPlaySecretLevel(CCObject*);

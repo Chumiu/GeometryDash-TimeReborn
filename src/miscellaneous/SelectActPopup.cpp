@@ -5,7 +5,7 @@
 
 bool SelectActPopup::init()
 {
-    if(!Popup::init(230, 160, "GJ_square01.png", {0, 0, 80, 80}))
+    if(!Popup::init(190, 200, "GJ_square01.png", {0, 0, 80, 80}))
         return false;
 
     setTitle("Select Act");
@@ -19,50 +19,31 @@ bool SelectActPopup::init()
     if (!isActCompleted(2))
         act3->setColor({100, 100, 100});
 
+    auto epilogueSpr = CCSprite::createWithSpriteFrameName("epilogueBtn_001.png"_spr);
+    if (!isActCompleted(3))
+        epilogueSpr->setColor({100, 100, 100});
+
     auto button1 = CCMenuItemSpriteExtra::create(act1, this, menu_selector(SelectActPopup::onSelectAct));
     button1->setTag(1);
-    button1->setPosition(m_size / 2 + CCPoint(0, 25));
+    button1->setPosition(m_size / 2 + CCPoint(0, 35));
     m_buttonMenu->addChild(button1);
 
- 
     auto button2 = CCMenuItemSpriteExtra::create(act2, this, menu_selector(SelectActPopup::onSelectAct));
     button2->setTag(2);
-    button2->setPosition(m_size / 2 + CCPoint(0, -10));
+    button2->setPosition(m_size / 2 + CCPoint(0, 0));
     m_buttonMenu->addChild(button2);
 
     auto button3 = CCMenuItemSpriteExtra::create(act3, this, menu_selector(SelectActPopup::onSelectAct));
     button3->setTag(3);
-    button3->setPosition(m_size / 2 + CCPoint(0, -45));
+    button3->setPosition(m_size / 2 + CCPoint(0, -35));
     m_buttonMenu->addChild(button3);
     
-    // TODO: ADD A SECRET BUTTON OR A BUTTON
-    // AFTER FINISHING ALL ACTS
-    // WERE THE PLAYER CAN PLAY "Time Leaper" LEVEL
-    // BY GENA
+    auto button4 = CCMenuItemSpriteExtra::create(epilogueSpr, this, menu_selector(SelectActPopup::onPlaySecretLevel));
+    button4->setTag(10);
+    button4->setPosition(m_size / 2 + CCPoint(0, -70));
+    m_buttonMenu->addChild(button4);
 
-    // TIME LEAPER
-    auto winSize = CCDirector::sharedDirector()->getWinSize();
-    const char* doorState = isActCompleted(3)
-        ? "towerDoor_open_001.png"
-        : "towerDoor_locked_001.png";
-
-    auto secretSpr_selected = CCSprite::createWithSpriteFrameName(doorState);
-    secretSpr_selected->setColor({0xa6, 0xa6, 0xa6});
-
-    auto secretSpr_unselected = CCSprite::createWithSpriteFrameName(doorState);
-
-    secretSpr_selected->setScale(.7);   
-    secretSpr_unselected->setScale(.7);
-
-    auto secretBtn = CCMenuItemSprite::create(secretSpr_unselected, secretSpr_selected, this,
-        menu_selector(SelectActPopup::onPlaySecretLevel));
-    
-    secretBtn->setPosition({
-        m_size.width - 18,
-        m_size.height / 2 - 49
-    });
-
-    m_buttonMenu->addChild(secretBtn);
+    setKeypadEnabled(true);
 
     return true;
 };
@@ -96,14 +77,14 @@ bool SelectActPopup::isActCompleted(int act)
 }
 
 void SelectActPopup::onPlaySecretLevel(CCObject* pSender) {
-    if (!isActCompleted(3)) {
+    if (isActCompleted(3)) {
         FLAlertLayer::create(
             "Locked",
             "Complete all <cg>ACT</c> to <cl>unlock</c> this <co>Secret Level</c>.",
             "OK"
         )->show();
     } else {
-        LevelPopup::create(10)
+        LevelPopup::create(pSender->getTag())
             ->show();
     }
 }
