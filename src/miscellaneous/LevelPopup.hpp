@@ -14,6 +14,7 @@ private:
     void onSettings(CCObject*);
     void onSong(CCObject*);
     void keyDown(cocos2d::enumKeyCodes key, double p1) override;
+    void keyBackClicked() override;
 public:
     static LevelPopup* create(int);
 

@@ -25,6 +25,7 @@ bool LevelLoading::init() {
     // i added this for indicator
     // Loading circle (your existing indicator)
     auto loading = LoadingCircle::create();
+    loading->setPositionY(loading->getPositionY() + 10);
     loading->show();
     
     m_loadingLabel = CCLabelBMFont::create(
@@ -35,7 +36,7 @@ bool LevelLoading::init() {
     m_loadingLabel->setScale(.5);
     m_loadingLabel->setPosition({
         winSize.width / 2,
-        winSize.height / 2 - 50
+        winSize.height / 2 - 40
     });
 
     addChild(loading);
@@ -60,6 +61,8 @@ void LevelLoading::updateLoadingText(float dt) {
 
     m_loadingLabel->setString(text.c_str());
 }
+
+void LevelLoading::keyBackClicked() { }
 
 void LevelLoading::show() {
     CCDirector::get()

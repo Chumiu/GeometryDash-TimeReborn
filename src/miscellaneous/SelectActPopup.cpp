@@ -77,7 +77,7 @@ bool SelectActPopup::isActCompleted(int act)
 }
 
 void SelectActPopup::onPlaySecretLevel(CCObject* pSender) {
-    if (isActCompleted(3)) {
+    if (!isActCompleted(3)) {
         FLAlertLayer::create(
             "Locked",
             "Complete all <cg>ACT</c> to <cl>unlock</c> this <co>Secret Level</c>.",

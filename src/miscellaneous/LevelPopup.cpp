@@ -7,7 +7,7 @@ bool LevelPopup::init()
 {
     if(!Popup::init(340, 280, "GJ_square01.png", {0, 0, 80, 80}))
         return false;
-
+    
     m_level = GameLevelManager::get()->getMainLevel(m_levelID, true);
 
     auto contentSize = m_mainLayer->getContentSize();
@@ -154,7 +154,6 @@ void LevelPopup::onPlay(CCObject* sender)
     m_buttonsMenu->setEnabled(false);
 
     m_playButtonPressed = true;
-    setKeypadEnabled(false);
 
     // display this
     LevelLoading::create()
@@ -178,6 +177,17 @@ void LevelPopup::keyDown(cocos2d::enumKeyCodes key, double p1)
         return FLAlertLayer::keyDown(key, p1);
     }
     
+}
+
+// prevent mobile players clicking or pressing
+// their back button when hitting play button
+
+void LevelPopup::keyBackClicked() {
+    if(!m_playButtonPressed) {
+        this->onClose(nullptr);
+    } else {
+        return;
+    }
 }
 
 void LevelPopup::onloadLevel()

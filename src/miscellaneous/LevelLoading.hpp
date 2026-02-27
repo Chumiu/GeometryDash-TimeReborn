@@ -10,6 +10,7 @@ public:
     ~LevelLoading();
     virtual bool init();
     virtual void registerWithTouchDispatcher();
+    virtual void keyBackClicked();
     
     void show();
     void updateLoadingText(float dt);

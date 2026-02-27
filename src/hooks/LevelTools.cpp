@@ -3,9 +3,9 @@
 
 using namespace geode::prelude;
 
-class $modify(LevelTools)
+class $modify(TRLevelTools, LevelTools)
 {
-	static bool verifyLevelIntegrity(std::string verifyString, int levelID)
+	static bool verifyLevelIntegrity(gd::string verifyString, int levelID)
 	{
 		return true;
 	}
@@ -253,7 +253,7 @@ class $modify(LevelTools)
 			level->m_demon = 2;
 			level->m_requiredCoins = 0;
 			level->m_timestamp = 41239;
-			level->m_coins = 3;
+			level->m_coins = 0;
 			break;
 		}
 

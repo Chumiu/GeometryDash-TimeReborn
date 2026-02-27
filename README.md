@@ -15,7 +15,10 @@ This mod uses its own save file so your save data will not be modified. Your act
 
 ---
 ### **Android Version**
-There is also an android version of this fan-game as a separate app (APK) instead of android geode support, you can download it on [Gamejolt](https://gamejolt.com/games/timereborn/908956)!
+~~There is also an android version of this fan-game as a separate app (APK) instead of android geode support, you can download it on [Gamejolt](https://gamejolt.com/games/timereborn/908956)!~~
+
+The standalone APK is outdated due to incompatibility with the traditional mod.
+Now it supports Android for Geode, 32 and 64-bit Android.
 
 ---
 ### **<cr>WARNING:</c>**

@@ -90,7 +90,8 @@ CCNode* TimeReborn::createDifficultyNode(GJGameLevel* level)
     }
 
     coinMenu->alignItemsHorizontally();
-    
+    coinMenu->setVisible(level->m_coins != 0); // hide coins if theres no coins
+
     node->addChild(coinMenu);
     node->addChild(diffSprite);
     node->addChild(moonSprite);

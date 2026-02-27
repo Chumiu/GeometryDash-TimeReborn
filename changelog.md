@@ -1,8 +1,11 @@
 # v1.0.5
 
 * UI Improvements
+* Added Level Loading Indicator
 * Best Time for Platformer Levels
-* New Level added "Time Leaper"
+* New "Secret Level" added
+* Level Updated "The Star Realm"
+* Android Support
 
 # v1.0.4
 
