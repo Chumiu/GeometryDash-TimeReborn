@@ -1,3 +1,7 @@
+# v1.0.6
+
+* Fixed Android version not working (it had not been built)
+
 # v1.0.5
 
 * UI Improvements
