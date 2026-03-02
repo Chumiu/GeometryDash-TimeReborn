@@ -20,6 +20,13 @@
 			"required": true
 		}
 	},
+	"issues": {
+		"info": "Make sure to report any problems you have in the GitHub repository!",
+		"url": "https://github.com/Chumiu/GeometryDash-TimeReborn/issues"
+	},
+	"links": {
+		"source": "https://github.com/Chumiu/GeometryDash-TimeReborn"
+	},
 	"resources": {
 		"spritesheets": {
 			"GD_timeRebornSheet": [
